@@ -3,12 +3,12 @@
 using namespace std;
 
 bool solution(const vector<int> &A, const vector<int> &P, int B, int E){
-	bool approved1 = false; 
-	bool approved2 = false;
+	bool approved1=false; 
+	bool approved2=false;
 	if(A.size()==P.size()){
 		int positive_span=0;
-		for(int i=0; i<A.size(); i++){
-			if(A[i] > 0){ 
+		for(int i=0;i<A.size();i++){
+			if(A[i]>0){ 
 				positive_span=1;
 			}else{
 				positive_span=0;
@@ -19,32 +19,32 @@ bool solution(const vector<int> &A, const vector<int> &P, int B, int E){
 			vector <int> right_edge;
 			vector <int> left_edge;
 			int left_var, right_var;
-			for(int i=0; i<A.size(); i++){
+			for(int i=0;i<A.size();i++){
 				right_var=P[i]+A[i];
 				left_var=P[i]-A[i];
 				right_edge.push_back(right_var);
 				left_edge.push_back(left_var);
 			}
-			for(int i=0; i<A.size(); i++){
+			for(int i=0;i<A.size();i++){
 				if(B>E){
-					if(B >= left_edge[i] && B <= right_edge[i]){ 
+					if(B>=left_edge[i]&&B<=right_edge[i]){ 
 						approved1=true;
-						if(E >= left_edge[i] && E <= right_edge[i]){
+						if(E>=left_edge[i]&&E<=right_edge[i]){
 							approved2=true;
 							cout<<"true";
 							return true;
 						}else{
-    						for(int j=i; j<A.size(); j++){ 
-    							if(E >= left_edge[j] && E <= right_edge[j]){ 
-    								if(left_edge[j] <= right_edge[i]){ 
+    						for(int j=i;j<A.size();j++){ 
+    							if(E>=left_edge[j]&&E<=right_edge[j]){ 
+    								if(left_edge[j]<=right_edge[i]){ 
     									approved2=true;
     									cout<<"true";
     									return true;
     								}else{
     									int contact_right_edge=right_edge[i];
     									int contact_left_edge=left_edge[j]; 
-    									for(int l=0; l<A.size(); l++){
-    										if(contact_right_edge>=left_edge[l] && contact_left_edge<=right_edge[l]){
+    									for(int l=0;l<A.size();l++){
+    										if(contact_right_edge>=left_edge[l]&&contact_left_edge<=right_edge[l]){
     											approved2=true; 
     											cout<<"true";
     											return true;
@@ -56,23 +56,23 @@ bool solution(const vector<int> &A, const vector<int> &P, int B, int E){
 						}
 					}	
 				}else{
-					if(E >= left_edge[i] && E <= right_edge[i]){ 
+					if(E>=left_edge[i]&&E<=right_edge[i]){ 
 						approved1=true;
-						if(B >= left_edge[i] && B <= right_edge[i]){
+						if(B>=left_edge[i]&&B<=right_edge[i]){
 							approved2=true;
 							cout<<"true";
 							return true;						    
 						}else{
-    						for(int j=A.size()-1; j>=0; j--){ 
-    							if(B >= left_edge[j] && B <= right_edge[j]){ 
-    								if(left_edge[i] <= right_edge[j]){ 
+    						for(int j=A.size()-1;j>=0;j--){ 
+    							if(B>=left_edge[j]&&B<=right_edge[j]){ 
+    								if(left_edge[i]<=right_edge[j]){ 
     									approved2=true;
     									cout<<"true";
     									return true;
     								}else{
     									int contact_right_edge=right_edge[j];
     									int contact_left_edge=left_edge[i]; 
-    									for(int l=A.size(); l>=0; l--){
+    									for(int l=A.size();l>=0;l--){
     										if(contact_right_edge>=left_edge[l]&&contact_left_edge<=right_edge[l]){
     											approved2=true;
     											cout<<"true";
@@ -87,8 +87,8 @@ bool solution(const vector<int> &A, const vector<int> &P, int B, int E){
 				}
 			}
 		}
-		if(approved1!=true || approved2!=true){
-		    cout<<"This point does not fit in this crane";
+		if(approved1!=true||approved2!=true){
+		    cout<<"This point cannot be moved with cranes";
 		    return false;
 		}
 	}else{
