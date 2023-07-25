@@ -98,22 +98,22 @@ bool solution(const vector<int> &A, const vector<int> &P, int B, int E){
 }
 
 int main(){
-	//const vector<int> &A = {2,1};
-	//const vector<int> &P = {5,1};
+    //const vector<int> &A = {2,1};
+    //const vector<int> &P = {5,1};
     //solution(A,P,2,6);
     //should return false
     //solution(A,P,3,6);
     //should return true
     //const vector<int> &A = {5,5,1};
-	//const vector<int> &P = {3,3,6};
-	//solution(A,P,4,8);
-	//should return true
+    //const vector<int> &P = {3,3,6};
+    //solution(A,P,4,8);
+    //should return true
     //const vector<int> &A = {1,3};
-	//const vector<int> &P = {2,6};
-	//solution(A,P,1,5);
-	//should return true
+    //const vector<int> &P = {2,6};
+    //solution(A,P,1,5);
+    //should return true
     const vector<int> &A = {1,4,2};
-	const vector<int> &P = {10,4,7};
-	solution(A,P,11,1);
-	//should return true	
+    const vector<int> &P = {10,4,7};
+    solution(A,P,11,1);
+    //should return true	
 }
